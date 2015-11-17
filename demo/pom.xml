@@ -37,7 +37,7 @@
             <id>redhat-techpreview-all-repository</id>
             <url>https://maven.repository.redhat.com/techpreview/all/</url>
             <releases>
-                <enabled>true</enabled>
+                <enabled>false</enabled>
             </releases>
             <snapshots>
                 <enabled>false</enabled>
@@ -281,6 +281,50 @@
 
             </plugins>
         </pluginManagement>
+	 <plugins>
+          <plugin>
+                                <groupId>org.codehaus.mojo</groupId>
+                                <artifactId>rpm-maven-plugin</artifactId>
+                                <version>2.1.4</version>
+                                <executions>
+                                        <execution>
+                                                <id>attach-rpm</id>
+                                                <goals>
+                                                        <goal>attached-rpm</goal>
+                                                </goals>
+                                        </execution>
+                                </executions>
+                                <configuration>
+                                        <copyright>2015, Impera</copyright>
+                                        <group>misc</group>
+                                        <name>ticketmonster</name>
+                                        <packager>Wouter@impera.io</packager>
+                                        <prefix>/opt/jboss/deployed</prefix>
+                                        <requires>
+                                                <require>java-headless >= 1:1.7.0</require>
+                                        </requires>
+                                        <mappings>
+                                                <mapping>
+                                                        <directory>/opt/jboss/deployed</directory>
+                                                        <filemode>755</filemode>
+                                                        <username>root</username>
+                                                        <groupname>root</groupname>
+                                                        <sources>
+                                                                <source>
+                                                                        <location>${project.build.directory}/</location>
+                                                                        <includes>
+                                                                                <include>${project.build.finalName}.war</include>
+                                                                        </includes>
+                                                                </source>
+                                                        </sources>
+                                                </mapping>
+                                        </mappings>
+
+                                </configuration>
+                        </plugin>
+        
+        </plugins>
+
     </build>
 
     <profiles>
