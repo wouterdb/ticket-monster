@@ -299,13 +299,12 @@
                                         <group>misc</group>
                                         <name>ticketmonster</name>
                                         <packager>Wouter@impera.io</packager>
-                                        <prefix>/opt/jboss/deployed</prefix>
                                         <requires>
-                                                <require>java-headless >= 1:1.7.0</require>
+                                                <require> jbossas-standalone </require>
                                         </requires>
                                         <mappings>
                                                 <mapping>
-                                                        <directory>/opt/jboss/deployed</directory>
+                                                        <directory>/usr/share/jbossas/standalone/deployments</directory>
                                                         <filemode>755</filemode>
                                                         <username>root</username>
                                                         <groupname>root</groupname>
