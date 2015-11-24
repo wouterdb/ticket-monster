@@ -306,8 +306,8 @@
                                                 <mapping>
                                                         <directory>/usr/share/jbossas/standalone/deployments</directory>
                                                         <filemode>755</filemode>
-                                                        <username>root</username>
-                                                        <groupname>root</groupname>
+                                                        <username>jboss</username>
+                                                        <groupname>jboss</groupname>
                                                         <sources>
                                                                 <source>
                                                                         <location>${project.build.directory}/</location>
